@@ -16,7 +16,6 @@
 package com.reedmanit.restaurantbill.service;
 
 import com.reedmanit.restaurantbill.model.Bill;
-import com.reedmanit.restaurantbill.model.BillOld;
 import com.vaadin.flow.component.textfield.NumberField;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
