@@ -18,9 +18,9 @@ package com.reedmanit.restaurantbill.view;
 import com.reedmanit.restaurantbill.model.Bill;
 import com.reedmanit.restaurantbill.service.BillCalculationService;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
-import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.data.binder.Binder;
 
 /**
@@ -51,10 +51,13 @@ public class BillForm extends FormLayout {
 
     private NumberField tipPercentNumber;
 
+    private VerticalLayout vl;
+
     public BillForm() {
 
         billService = new BillCalculationService();
         theBill = new Bill();
+
         setUpForm();
 
     }
@@ -76,7 +79,7 @@ public class BillForm extends FormLayout {
         });
 
         tipInput.addValueChangeListener(event -> {
-            
+
             tipPercentNumber.setValue(event.getValue());
 
             setTheBillValues();
@@ -114,9 +117,17 @@ public class BillForm extends FormLayout {
     private void layoutTheForm() {
 
         billTotal = new NumberField("Bill Total");
+        
+        billTotal.setRequired(true);
+        
         tipPercentNumber = new NumberField();
 
         billTotalIncTip = new NumberField("Bill Total Inc Tip");
+        
+        billTotalIncTip.setReadOnly(true);
+        
+        
+       
 
         tipInput = new NumberField("Tip %");
         tipInput.setValue(10.0);
@@ -141,24 +152,32 @@ public class BillForm extends FormLayout {
         splitBetween.setMax(10);
 
         totalTipValue = new NumberField("The Total Value of the Tip");
+        
+        totalTipValue.setReadOnly(true);
 
         amtEachPersonPays = new NumberField("Amount each person pays");
-
-        billTotal.addThemeVariants(TextFieldVariant.LUMO_ALIGN_CENTER);
+        
+        amtEachPersonPays.setReadOnly(true);
 
         this.add(billTotal);
-       
-        this.add(billTotalIncTip);
+        
         this.add(tipInput);
         this.add(splitBetween);
-        this.add(totalTipValue);
-        this.add(amtEachPersonPays);
 
-        ResponsiveStep small = new ResponsiveStep("1px", 1);
-        ResponsiveStep r1 = new ResponsiveStep("800px", 2);
+        this.add(billTotalIncTip);
+        
+        this.add(totalTipValue);
+        
+        this.add(amtEachPersonPays);
+        
+        
+        
         
 
-        this.setResponsiveSteps(small, r1);
+        ResponsiveStep small = new ResponsiveStep("0", 1);
+
+        this.setResponsiveSteps(small);
+
     }
 
     private void setTheBillValues() {

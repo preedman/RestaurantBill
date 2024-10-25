@@ -46,22 +46,20 @@ public class BillCalculationService {
         
         
     }
-     // turn the tip % into a number
-     // tip%
+     
     private void calculateTheTip() {
         
-       // Double t = theBill.getTipPercent().getValue() / 100;
-       System.out.println("Bill Total " + theBill.getBillTotal().getValue() + " " + "Tip% " + theBill.getTipPercent().getValue());
-        Double b = theBill.getBillTotal().getValue() * theBill.getTipPercent().getValue();
-        b = b / 100;
-        System.out.println("b " + b);
+       
+        Double b = (theBill.getBillTotal().getValue() * theBill.getTipPercent().getValue()) / 100;
+      
+        
         BigDecimal bd = new BigDecimal(b).setScale(2, RoundingMode.HALF_UP);
         NumberField n = new NumberField();
         n.setValue(bd.doubleValue());
         theBill.setBillTip(n);
         
     }
-    // the bill total = Bill Total + the Tip
+    
     private void calculateTheTotal() {
         
         
