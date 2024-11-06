@@ -15,18 +15,27 @@
  */
 package com.reedmanit.restaurantbill.view;
 
+import com.reedmanit.restaurantbill.MainView;
 import com.reedmanit.restaurantbill.model.Bill;
 import com.reedmanit.restaurantbill.service.BillCalculationService;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.router.Route;
+import java.util.Properties;
+import java.util.stream.Stream;
+import com.reedmanit.restaurantbill.model.Security;
 
 /**
  *
  * @author preed
  */
+@Route("billform")
 public class BillForm extends FormLayout {
 
     private NumberField billTotal;
@@ -55,10 +64,16 @@ public class BillForm extends FormLayout {
 
     public BillForm() {
 
-        billService = new BillCalculationService();
-        theBill = new Bill();
+        if (Security.getInstance().validPassCode == true) {
+            billService = new BillCalculationService();
+            theBill = new Bill();
 
-        setUpForm();
+            setUpForm();
+        } else {
+            this.getUI().ifPresent(ui -> ui.navigate(MainView.class));
+        }
+
+        
 
     }
 
@@ -116,18 +131,23 @@ public class BillForm extends FormLayout {
 
     private void layoutTheForm() {
 
+        // this.add(new H1("Restaurant Bill"));
+        var layout = new HorizontalLayout(new H1("Restaurant Bill"));
+        layout.setWidthFull();
+        layout.getStyle().set("border", "1px solid");
+        layout.setJustifyContentMode(JustifyContentMode.CENTER);
+
+        this.add(layout);
+
         billTotal = new NumberField("Bill Total");
-        
+
         billTotal.setRequired(true);
-        
+
         tipPercentNumber = new NumberField();
 
         billTotalIncTip = new NumberField("Bill Total Inc Tip");
-        
+
         billTotalIncTip.setReadOnly(true);
-        
-        
-       
 
         tipInput = new NumberField("Tip %");
         tipInput.setValue(10.0);
@@ -152,27 +172,23 @@ public class BillForm extends FormLayout {
         splitBetween.setMax(10);
 
         totalTipValue = new NumberField("The Total Value of the Tip");
-        
+
         totalTipValue.setReadOnly(true);
 
         amtEachPersonPays = new NumberField("Amount each person pays");
-        
+
         amtEachPersonPays.setReadOnly(true);
 
         this.add(billTotal);
-        
+
         this.add(tipInput);
         this.add(splitBetween);
 
         this.add(billTotalIncTip);
-        
+
         this.add(totalTipValue);
-        
+
         this.add(amtEachPersonPays);
-        
-        
-        
-        
 
         ResponsiveStep small = new ResponsiveStep("0", 1);
 
