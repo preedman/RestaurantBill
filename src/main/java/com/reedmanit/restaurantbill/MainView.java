@@ -15,6 +15,7 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 
 @Route
@@ -32,11 +33,14 @@ public class MainView extends VerticalLayout {
         layout.setJustifyContentMode(JustifyContentMode.CENTER);
 
         this.add(layout);
-
-        TextField passCodeTF = new TextField("Passcode");
+        
+        PasswordField passCodeTF = new PasswordField();
+        //passCodeTF.setRequiredIndicatorVisible(true);
+        
+        //TextField passCodeTF = new TextField("Passcode");
         passCodeTF.setRequiredIndicatorVisible(true);
         passCodeTF.setMaxLength(18);
-
+        passCodeTF.setRevealButtonVisible(true);
         passCodeTF.setHelperText("Enter Passcode to use app");
 
         this.add(passCodeTF);
