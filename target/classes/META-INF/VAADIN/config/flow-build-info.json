@@ -1,0 +1,18 @@
+{
+  "productionMode": false,
+  "eagerServerLoad": false,
+  "npmFolder": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill",
+  "node.version": "v20.15.0",
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\src\\main\\frontend",
+  "connect.javaSourceFolder": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\src\\main\\java",
+  "javaResourceFolder": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\src\\main\\resources",
+  "connect.applicationProperties": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\src\\main\\resources\\application.properties",
+  "connect.openApiFile": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\target\\generated-resources\\openapi.json",
+  "project.frontend.generated": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\src\\main\\frontend\\generated",
+  "pnpm.enable": false,
+  "bun.enable": false,
+  "require.home.node": false,
+  "build.folder": "target",
+  "react.enable": true
+}

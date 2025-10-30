@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/SoftwareDevelopment/Projects/RestaurantBill/src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/SoftwareDevelopment/Projects/RestaurantBill/src/main/frontend/generated/jar-resources",
+  "staticOutput": "C:/SoftwareDevelopment/Projects/RestaurantBill/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/SoftwareDevelopment/Projects/RestaurantBill/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/SoftwareDevelopment/Projects/RestaurantBill/target/dev-bundle/config",
+  "jarResourcesFolder": "C:/SoftwareDevelopment/Projects/RestaurantBill/src/main/frontend/generated/jar-resources",
+  "themeName": "",
+  "clientServiceWorkerSource": "C:\\SoftwareDevelopment\\Projects\\RestaurantBill\\target\\sw.ts",
+  "pwaEnabled": true,
+  "offlineEnabled": true,
+  "offlinePath": "'.'"
+}
